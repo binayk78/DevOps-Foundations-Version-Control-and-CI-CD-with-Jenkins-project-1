@@ -5,6 +5,7 @@ pipeline {
         stage('Checkout Code') {
             steps {
                 git branch: 'main', url: 'https://github.com/binayk78/DevOps-Foundations-Version-Control-and-CI-CD-with-Jenkins-project-1.git'
+                
             }
         }
 
