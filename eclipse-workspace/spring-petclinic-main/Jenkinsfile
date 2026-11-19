@@ -1,0 +1,23 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Checkout Code') {
+            steps {
+                git branch: 'main', url: 'https://github.com/binayk78/DevOps-Foundations-Version-Control-and-CI-CD-with-Jenkins-project-1.git'
+            }
+        }
+
+        stage('Build with Maven') {
+            steps {
+                sh 'mvn clean package'
+            }
+        }
+
+        stage('Deploy to Tomcat') {
+            steps {
+                sh 'cp target/*.war /opt/tomcat/webapps/petclinic.war'
+            }
+        }
+    }
+}
