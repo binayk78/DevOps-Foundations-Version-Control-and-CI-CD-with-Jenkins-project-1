@@ -9,18 +9,21 @@ pipeline {
             }
         }
 
-        stage('Build with Maven') {
-            steps {
-                bat 'mvnw.cmd -B clean package'
-            }
-        }
-
-        stage('Verify Build') {
-            steps {
-                bat 'dir target'
-            }
+       stage('Build with Maven') {
+    steps {
+        dir('eclipse-workspace/spring-petclinic-main') {
+            bat 'mvnw.cmd -B clean package'
         }
     }
+}
+
+stage('Verify Build') {
+    steps {
+        dir('eclipse-workspace/spring-petclinic-main') {
+            bat 'dir target'
+        }
+    }
+}
 
     post {
         success {
