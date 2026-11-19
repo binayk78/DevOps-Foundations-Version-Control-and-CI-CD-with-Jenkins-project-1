@@ -19,8 +19,9 @@ pipeline {
 
 stage('Verify Build') {
     steps {
-        dir('eclipse-workspace/spring-petclinic-main') {
-            bat 'dir target'
+       dir('eclipse-workspace/spring-petclinic-main') {
+    bat 'mvnw.cmd -B clean package'
+}
         }
     }
 }
