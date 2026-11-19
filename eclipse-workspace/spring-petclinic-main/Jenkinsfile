@@ -11,7 +11,7 @@ pipeline {
 
         stage('Build with Maven') {
             steps {
-                bat 'mvn -B clean package'
+                bat 'mvnw.cmd -B clean package'
             }
         }
 
